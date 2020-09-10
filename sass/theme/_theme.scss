@@ -18,9 +18,24 @@ h2, h3 {
 
 #hero {
     height: 23em;
+    background-image: url('../img/smoothie-1444371_2000px_crop.jpg');
     background-size: cover;
 }
 
 #strawberry-logo {
     height: 70px;
 }
+
+#smoothie-brand {
+    font-family: 'Josefin Slab', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #33691e;
+    margin-left: 0.5em;
+    vertical-align: bottom;
+}
+
+// #main-menu {
+//     color: purple;
+//     background-color: orange;
+// }

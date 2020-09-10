@@ -8,9 +8,8 @@ get_header();
 ?>
 
 <div class="container">
-    <main>
       <!-- IMAGE SECTION -->
-      <section class="row justify-content-center mt-3 py-5 bg-image text-center" id="hero" style="background-image: url(<?php echo get_theme_file_uri('/img/smoothie-1444371_2000px_crop.jpg') ?>);">
+      <section class="row justify-content-center mt-3 py-5 bg-image text-center" id="hero">
         <div>
           <div class="d-flex align-items-center justify-content-center">
             <div class="text-white col-lg-8 ml-lg-5">
@@ -48,7 +47,7 @@ get_header();
 
       <!-- SECTION 2 -->
       <section class="row justify-content-center mt-3">
-        <div class="col text-center px-5 py-5 text-white" style="background-color: #689f38;">
+        <div class="col text-center px-5 py-5 text-white bg-info">
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit quos expedita illum animi suscipit
             id, perferendis.</h4>
         </div>
@@ -71,7 +70,6 @@ get_header();
           <img class="img-fluid img-thumbnail" src="<?php echo get_theme_file_uri('/img/pexels-photomix-company-867349_600x400.jpg') ?>" alt="">
         </div>
       </section>
-    </main>
   </div>
 
 <?php get_footer(); ?>

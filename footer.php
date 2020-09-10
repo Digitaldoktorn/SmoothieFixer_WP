@@ -42,7 +42,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #page we need this extra closing tag here -->
 
-<footer class="text-center text-lg-left mt-3" style="background-color: #c5e1a5;">
+<footer class="text-center text-lg-left mt-3 bg-secondary">
     <!-- Grid container -->
     <div class="container p-5">
       <!--Grid row-->

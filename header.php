@@ -33,11 +33,21 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<!-- ******************* The Navbar Area ******************* -->
 	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #c5e1a5;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
       <div class="container">
-          <img id="strawberry-logo" src="<?php echo get_theme_file_uri('/img/Emojione_1F353.svg') ?>" alt="strawberry" loading="lazy" />
-							<h2 class="font-weight-bold mt-4"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h2>
-        <ul class="navbar-nav d-flex flex-row mt-3">
+
+		<!-- Image and text -->
+		<nav class="navbar navbar-light">
+			<a class="navbar-brand" href="#">
+				<img id="strawberry-logo" src="<?php echo get_theme_file_uri('/img/Emojione_1F353.svg') ?>" class="d-inline-block" alt="strawberry" loading="lazy">
+				<span id="smoothie-brand">Smoothie Fixer</span>
+			</a>
+		</nav>
+
+
+          <!-- <img id="strawberry-logo" src="<?php echo get_theme_file_uri('/img/Emojione_1F353.svg') ?>" alt="strawberry" loading="lazy" />
+				<h2 class="font-weight-bold mt-4"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h2> -->
+        <ul class="navbar-nav d-flex flex-row mt-5">
           <!-- Icons -->
           <li class="nav-item mr-3 mr-lg-0">
             <a class="nav-link" href="#">
@@ -65,9 +75,7 @@ $container = get_theme_mod( 'understrap_container_type' );
     </nav>
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
 
-		<?php if ( 'container' == $container ) : ?>
 			<div class="container">
-		<?php endif; ?>
 
 
 
@@ -81,7 +89,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						'theme_location'  => 'primary',
 						'container_class' => 'collapse navbar-collapse',
 						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav ml-auto',
+						'menu_class'      => 'navbar-nav mr-auto',
 						'fallback_cb'     => '',
 						'menu_id'         => 'main-menu',
 						'depth'           => 2,
