@@ -37,16 +37,13 @@ $container = get_theme_mod( 'understrap_container_type' );
       <div class="container">
 
 		<!-- Image and text -->
-		<nav class="navbar navbar-light">
+		<nav id="home-nav" class="navbar navbar-light">
 			<a class="navbar-brand" href="#">
 				<img id="strawberry-logo" src="<?php echo get_theme_file_uri('/img/Emojione_1F353.svg') ?>" class="d-inline-block" alt="strawberry" loading="lazy">
 				<span id="smoothie-brand">Smoothie Fixer</span>
 			</a>
 		</nav>
 
-
-          <!-- <img id="strawberry-logo" src="<?php echo get_theme_file_uri('/img/Emojione_1F353.svg') ?>" alt="strawberry" loading="lazy" />
-				<h2 class="font-weight-bold mt-4"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h2> -->
         <ul class="navbar-nav d-flex flex-row mt-5">
           <!-- Icons -->
           <li class="nav-item mr-3 mr-lg-0">
@@ -76,9 +73,6 @@ $container = get_theme_mod( 'understrap_container_type' );
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
 
 			<div class="container">
-
-
-
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
 					<span class="navbar-toggler-icon"></span>
 				</button>
