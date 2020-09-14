@@ -16,11 +16,11 @@ defined( 'ABSPATH' ) || exit;
 
 	<header class="entry-header">
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title display-4">', '</h1>' ); ?>
 
 		<div class="entry-meta">
 
-			<small class="d-inline bg-warning d-flex justify-content-end pr-3"><?php understrap_posted_on(); ?></small>
+			<small id="recipe-meta" class="badge badge-dark p-2 font-weight-normal"><?php understrap_posted_on(); ?></small>
 
 		</div><!-- .entry-meta -->
 
