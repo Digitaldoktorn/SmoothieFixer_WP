@@ -32,7 +32,6 @@ get_header();
           <a class="btn btn-primary mb-4" href="#">Prova direkt</a>
         </div>
         <div class="col-lg-6">
-        
           <img class="img-fluid img-thumbnail" src="<?php echo get_theme_file_uri('/img/harshal-s-hirve-yNB8niq1qCk-unsplash.jpg') ?>" alt="carrots">
         </div>
       </section>

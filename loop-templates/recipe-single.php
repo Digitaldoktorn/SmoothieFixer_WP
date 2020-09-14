@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="entry-meta">
 
-			<small><?php understrap_posted_on(); ?></small>
+			<small class="d-inline bg-warning d-flex justify-content-end pr-3"><?php understrap_posted_on(); ?></small>
 
 		</div><!-- .entry-meta -->
 
@@ -29,19 +29,58 @@ defined( 'ABSPATH' ) || exit;
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
 	<div class="entry-content">
+    <!-- <section class="row justify-content-center mt-3 bg-white">
+        <?php 
+            $image = get_field('smoothie_image');
+            $size = 'full'; // (thumbnail, medium, large, full or custom size)
+            if( $image ) {
+                echo wp_get_attachment_image( $image, $size );
+            }
+        ?>
+    </section> -->
 
-        <?php if( get_field('smoothie_image') ): ?>
-            <img src="<?php the_field('smoothie_image'); ?>" />
-        <?php endif; ?>
-        <br><br>
-        <h4>Beskrivning</h4>
-        <p><?php the_field('description'); ?></p>
+    <section class="row justify-content-center mt-3 py-5 bg-white">
+        <div class="col-lg-5 col-md-12 pl-4 mb-4 mb-md-0">
+            <h4>Beskrivning</h4>
+            <?php the_field('description'); ?>
+        </div>
+        <div class="col-lg-6">
+            <div class="img-fluid img-thumbnail">
+                <?php 
+                    $image = get_field('smoothie_image');
+                    $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                    if( $image ) {
+                        echo wp_get_attachment_image( $image, $size );
+                    }
+                ?>
+            </div>
+        </div>
+    </section>
+    <section class="row justify-content-center mt-3 py-5 bg-white">
+        <div class="col-lg-5 col-md-12 pl-4 mb-4 mb-md-0">
+                <h4>Ingredienser</h4>
+            <p>                
+            <span class="badge badge-pill badge-danger">Frukter</span> <?php the_field('fruits'); ?><br>
+            <span class="badge badge-pill badge-danger">Nötter etc</span> <?php the_field('nuts'); ?><br>
+            <span class="badge badge-pill badge-danger">Medium</span> <?php the_field('medium'); ?><br>
+            <span class="badge badge-pill badge-danger">Fetter</span> <?php the_field('fats'); ?><br>
+            </p>
+
+        </div>
+        <div class="col-lg-6">
+        <h4>&nbsp;</h4>
+        <p>
+            <span class="badge badge-pill badge-danger">Kryddor</span> <?php the_field('spices'); ?><br>
+            <span class="badge badge-pill badge-danger">Sötningsmedel</span> <?php the_field('sweeteners'); ?><br>
+            <span class="badge badge-pill badge-danger">Superfood 1</span> <?php the_field('superfood_1'); ?><br>
+            <span class="badge badge-pill badge-danger">Superfood 2</span> <?php the_field('superfood_2'); ?><br>
+        </p>
+        </div>
+    </section>
+    <br>
 		
-        <h4>Ingredienser</h4>
-		<?php the_field('fruits'); ?><br>
-		<?php the_field('nuts'); ?><br>
-		<?php the_field('medium'); ?><br>
-		<?php the_field('misc'); ?><br>
+
+
 
 		<?php
 		wp_link_pages(
