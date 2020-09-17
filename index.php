@@ -38,27 +38,30 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 					<?php /* Start the Loop */ ?>
 
-					<?php while ( have_posts() ) : the_post(); ?>
+						<?php while ( have_posts() ) : the_post(); ?>
+						<div class="mb-2">
+							<?php
 
-						<?php
+							/*
+							* Include the Post-Format-specific template for the content.
+							* If you want to override this in a child theme, then include a file
+							* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+							*/
+							get_template_part( 'loop-templates/content', get_post_format() );
+							?>
+						</div>
+						<?php endwhile; ?>
 
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'loop-templates/content', get_post_format() );
-						?>
+						<?php else : ?>
 
-					<?php endwhile; ?>
+							<?php get_template_part( 'loop-templates/content', 'none' ); ?>
 
-				<?php else : ?>
+						<?php endif; ?>
 
-					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
 
-				<?php endif; ?>
 
-			</main><!-- #main -->
+			</main>
+			<!-- #main -->
 
 			<!-- The pagination component -->
 			<?php understrap_pagination(); ?>

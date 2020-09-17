@@ -57,7 +57,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</dl>
 					<?php endif; ?>
 
-					<h2><?php echo esc_html( 'Posts by', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
+					<h2><?php echo esc_html( 'Inlägg av', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
 
 				</header><!-- .page-header -->
 
