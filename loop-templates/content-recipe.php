@@ -27,8 +27,6 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="entry-content">
 
-    <p>hej</p>
-
 		<?php the_content(); ?>
 		<p>content-recipe.php template part</p>
 

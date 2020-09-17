@@ -79,16 +79,28 @@ defined( 'ABSPATH' ) || exit;
                         <td><span class="badge badge-pill badge-danger">Sötningsmedel</span></td>
                         <td><?php the_field('sweeteners'); ?></td>
                     </tr>
-                    <tr>
+
+                    <!-- <tr>
                         <td><span class="badge badge-pill badge-danger">Superfood 1</span></td>
                         <td><?php the_field('superfood_1'); ?></td>
                     </tr>
                     <tr>
                         <td><span class="badge badge-pill badge-danger">Superfood 2</span></td>
                         <td><?php the_field('superfood_2'); ?></td>
-                    </tr>
+                    </tr> -->
                 </table>
         </div>
+                <p><small>hej</small></p>
+                <tr>
+                    <?php 
+                        $superfood1_badge = '<td><span class="badge badge-pill badge-danger">Superfood 1</span></td>';
+                        $superfood2_badge = '<td><span class="badge badge-pill badge-danger">Superfood 2</span></td>';
+
+                        echo $superfood2_badge;
+                        '<small>' . the_field(superfood_2) . '</small>'
+                    ?>
+                </tr>
+
 		<?php
 		wp_link_pages(
 			array(
