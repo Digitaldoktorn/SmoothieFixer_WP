@@ -1,6 +1,6 @@
 <?php
 /**
- * Partial template for content in page.php
+ * Single recipe partial template.
  *
  * @package understrap
  */
@@ -8,21 +8,29 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 ?>
-<article class="bg-white p-5 mr-3" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+
+<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 	<header class="entry-header">
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+		<div class="entry-meta">
+
+			<?php understrap_posted_on(); ?>
+
+		</div><!-- .entry-meta -->
 
 	</header><!-- .entry-header -->
 
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
 	<div class="entry-content">
-		
-			<?php the_content(); ?>
-		
-		
+
+    <p>hej</p>
+
+		<?php the_content(); ?>
+		<p>content-recipe.php template part</p>
 
 		<?php
 		wp_link_pages(
@@ -37,7 +45,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php edit_post_link( __( 'Edit', 'understrap' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php understrap_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
 
