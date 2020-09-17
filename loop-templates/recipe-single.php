@@ -52,8 +52,16 @@ defined( 'ABSPATH' ) || exit;
                         <td><?php the_field('fruits'); ?></td>
                     </tr>
                     <tr>
+                        <td><span class="badge badge-pill badge-danger">Grönsaker</span></td>
+                        <td><?php the_field('veggies'); ?></td>
+                    </tr>
+                    <tr>
                         <td><span class="badge badge-pill badge-danger">Nötter, frön, kärnor</span></td>
                         <td><?php the_field('nuts'); ?></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-pill badge-danger">Proteiner</span></td>
+                        <td><?php the_field('proteins'); ?></td>
                     </tr>
                     <tr>
                         <td><span class="badge badge-pill badge-danger">Medium</span></td>

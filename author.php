@@ -44,7 +44,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php if ( ! empty( $curauth->user_url ) || ! empty( $curauth->user_description ) ) : ?>
 						<dl>
 							<?php if ( ! empty( $curauth->user_url ) ) : ?>
-								<dt><?php esc_html_e( 'Website', 'understrap' ); ?></dt>
+								<dt><?php esc_html_e( 'Webbplats', 'understrap' ); ?></dt>
 								<dd>
 									<a href="<?php echo esc_url( $curauth->user_url ); ?>"><?php echo esc_html( $curauth->user_url ); ?></a>
 								</dd>
@@ -57,7 +57,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</dl>
 					<?php endif; ?>
 
-					<h2><?php echo esc_html( 'Inlägg av', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
+					<h4><?php echo esc_html( 'Inlägg av', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h4>
 
 				</header><!-- .page-header -->
 
@@ -75,9 +75,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 									the_title( '', '', false )
 								);
 								?>
-								<?php understrap_posted_on(); ?>
-								<?php esc_html_e( 'in', 'understrap' ); ?>
-								<?php the_category( '&' ); ?>
+								<!-- <?php understrap_posted_on(); ?> -->
+								<!-- <?php esc_html_e( 'in', 'understrap' ); ?>
+								<?php the_category( '&' ); ?> -->
 							</li>
 						<?php endwhile; ?>
 
