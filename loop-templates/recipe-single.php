@@ -46,60 +46,67 @@ defined( 'ABSPATH' ) || exit;
         </div>
 
         <div class="mt-3">
-                <table id="ingredients-fruit" class="mb-2">
-                    <tr>
-                        <td><span class="badge badge-pill badge-danger">Frukter</span></td>
-                        <td><?php the_field('fruits'); ?></td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-pill badge-danger">Grönsaker</span></td>
-                        <td><?php the_field('veggies'); ?></td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-pill badge-danger">Nötter, frön, kärnor</span></td>
-                        <td><?php the_field('nuts'); ?></td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-pill badge-danger">Proteiner</span></td>
-                        <td><?php the_field('proteins'); ?></td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-pill badge-danger">Medium</span></td>
-                        <td><?php the_field('medium'); ?></td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-pill badge-danger">Fetter, oljor</span></td>
-                        <td><?php the_field('fats'); ?></td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-pill badge-danger">Kryddor</span></td>
-                        <td><?php the_field('spices'); ?></td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-pill badge-danger">Sötningsmedel</span></td>
-                        <td><?php the_field('sweeteners'); ?></td>
-                    </tr>
-
-                    <!-- <tr>
-                        <td><span class="badge badge-pill badge-danger">Superfood 1</span></td>
-                        <td><?php the_field('superfood_1'); ?></td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-pill badge-danger">Superfood 2</span></td>
-                        <td><?php the_field('superfood_2'); ?></td>
-                    </tr> -->
-                </table>
-        </div>
-                <p><small>hej</small></p>
+            <table id="ingredients-fruit" class="mb-2">
                 <tr>
-                    <?php 
-                        $superfood1_badge = '<td><span class="badge badge-pill badge-danger">Superfood 1</span></td>';
-                        $superfood2_badge = '<td><span class="badge badge-pill badge-danger">Superfood 2</span></td>';
-
-                        echo $superfood2_badge;
-                        '<small>' . the_field(superfood_2) . '</small>'
-                    ?>
+                    <td><span class="badge badge-pill badge-danger">Frukter</span></td>
+                    <td><?php the_field('fruits'); ?></td>
                 </tr>
+                <tr>
+                    <td><span class="badge badge-pill badge-danger">Grönsaker</span></td>
+                    <td><?php the_field('veggies'); ?></td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-pill badge-danger">Nötter, frön, kärnor</span></td>
+                    <td><?php the_field('nuts'); ?></td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-pill badge-danger">Proteiner</span></td>
+                    <td><?php the_field('proteins'); ?></td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-pill badge-danger">Medium</span></td>
+                    <td><?php the_field('medium'); ?></td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-pill badge-danger">Fetter, oljor</span></td>
+                    <td><?php the_field('fats'); ?></td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-pill badge-danger">Kryddor</span></td>
+                    <td><?php the_field('spices'); ?></td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-pill badge-danger">Sötningsmedel</span></td>
+                    <td><?php the_field('sweeteners'); ?></td>
+                </tr>
+                <?php 
+                    $superfood1_badge = '<span class="badge badge-pill badge-danger">Superfood 1</span>';
+                    $superfood2_badge = '<span class="badge badge-pill badge-danger">Superfood 2</span>';
+
+                    // There is a bug (ACF). It's possible for the user to first choose from Superfood 1, update, and then choose from Superfood 2. The first choice will not be removed unless the user unchecks and updates before choosing from Superfood 2. So to avoid displaying values from both categories, I wrote this conditional.
+                ?>
+                <tr>
+                    <td><?php if(get_field('choice_superfood') == 'Superfood 1') {
+                                echo $superfood1_badge;
+                         } ?>
+                    </td>
+                    <td><?php if(get_field('choice_superfood') == 'Superfood 1') {
+                                echo the_field('superfood_1');
+                         } ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?php if(get_field('choice_superfood') == 'Superfood 2') {
+                                echo $superfood2_badge;
+                         } ?>
+                    </td>
+                    <td><?php if(get_field('choice_superfood') == 'Superfood 2') {
+                                echo the_field('superfood_2');
+                         } ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
 		<?php
 		wp_link_pages(
