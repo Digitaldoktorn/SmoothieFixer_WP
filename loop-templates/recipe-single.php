@@ -47,21 +47,48 @@ defined( 'ABSPATH' ) || exit;
 
         <div class="mt-3">
             <table id="ingredients-fruit" class="mb-2">
+                <?php 
+                    // There is a bug (ACF). It's possible for the user to first choose from Superfood 1, update, and then choose from Superfood 2. The first choice will not be removed unless the user unchecks and updates before choosing from Superfood 2. So to avoid displaying values from both categories, I wrote conditionals. Same goes for Fruit- or Veggie-smoothie
+                    $fruits_badge = '<span class="badge badge-pill badge-danger">Frukter</span>';
+                    $veggies_badge = '<span class="badge badge-pill badge-danger">Grönsaker</span>';
+                    $proteins_badge = '<span class="badge badge-pill badge-danger">Proteiner</span>';
+                    $superfood1_badge = '<span class="badge badge-pill badge-danger">Superfood 1</span>';
+                    $superfood2_badge = '<span class="badge badge-pill badge-danger">Superfood 2</span>';
+                ?>
                 <tr>
-                    <td><span class="badge badge-pill badge-danger">Frukter</span></td>
-                    <td><?php the_field('fruits'); ?></td>
+                    <td><?php if(get_field('choice') == 'Frukt-smoothie') {
+                                echo $fruits_badge;
+                         } ?>
+                    </td>
+                    <td><?php if(get_field('choice') == 'Frukt-smoothie') {
+                                echo the_field('fruits');
+                         } ?>
+                    </td>
                 </tr>
                 <tr>
-                    <td><span class="badge badge-pill badge-danger">Grönsaker</span></td>
-                    <td><?php the_field('veggies'); ?></td>
+                    <td><?php if(get_field('choice') == 'Veggie-smoothie') {
+                                echo $veggies_badge;
+                         } ?>
+                    </td>
+                    <td><?php if(get_field('choice') == 'Veggie-smoothie') {
+                                echo the_field('veggies');
+                         } ?>
+                    </td>
                 </tr>
                 <tr>
                     <td><span class="badge badge-pill badge-danger">Nötter, frön, kärnor</span></td>
                     <td><?php the_field('nuts'); ?></td>
                 </tr>
+
                 <tr>
-                    <td><span class="badge badge-pill badge-danger">Proteiner</span></td>
-                    <td><?php the_field('proteins'); ?></td>
+                    <td><?php if(get_field('choice') == 'Veggie-smoothie') {
+                                echo $proteins_badge;
+                         } ?>
+                    </td>
+                    <td><?php if(get_field('choice') == 'Veggie-smoothie') {
+                                echo the_field('proteins');
+                         } ?>
+                    </td>
                 </tr>
                 <tr>
                     <td><span class="badge badge-pill badge-danger">Medium</span></td>
@@ -79,12 +106,6 @@ defined( 'ABSPATH' ) || exit;
                     <td><span class="badge badge-pill badge-danger">Sötningsmedel</span></td>
                     <td><?php the_field('sweeteners'); ?></td>
                 </tr>
-                <?php 
-                    $superfood1_badge = '<span class="badge badge-pill badge-danger">Superfood 1</span>';
-                    $superfood2_badge = '<span class="badge badge-pill badge-danger">Superfood 2</span>';
-
-                    // There is a bug (ACF). It's possible for the user to first choose from Superfood 1, update, and then choose from Superfood 2. The first choice will not be removed unless the user unchecks and updates before choosing from Superfood 2. So to avoid displaying values from both categories, I wrote this conditional.
-                ?>
                 <tr>
                     <td><?php if(get_field('choice_superfood') == 'Superfood 1') {
                                 echo $superfood1_badge;
