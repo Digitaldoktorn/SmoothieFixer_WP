@@ -63,8 +63,19 @@ $container = get_theme_mod( 'understrap_container_type' );
               <i class="fas fa-user"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Login</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              
+
+				<?php if(is_user_logged_in()) { ?>
+					<li><a class="dropdown-item" href="<?php echo wp_logout_url(); ?>">Logout</a></li>
+				<?php } else { ?>
+					<li><a class="dropdown-item" href="<?php echo esc_url(site_url('/wp-signup.php')); ?>">Registrera konto</a></li>
+					<li><a class="dropdown-item" href="#">Login</a></li>
+				<?php } ?>
+
+
+
+              
+              
             </ul>
           </li>
         </ul>
