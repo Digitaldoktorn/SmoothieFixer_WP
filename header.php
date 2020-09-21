@@ -69,7 +69,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<li><a class="dropdown-item" href="<?php echo wp_logout_url(); ?>">Logout</a></li>
 				<?php } else { ?>
 					<li><a class="dropdown-item" href="<?php echo esc_url(site_url('/wp-signup.php')); ?>">Registrera konto</a></li>
-					<li><a class="dropdown-item" href="#">Login</a></li>
+					<li><a class="dropdown-item" href="<?php echo wp_login_url(); ?>">Login</a></li>
 				<?php } ?>
 
 
