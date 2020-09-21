@@ -16,8 +16,7 @@ get_header();
               <h1 class="mb-3 font-weight-bold"><?php the_field('title'); ?></h1>
               <p class="mb-3 text-white lead"><?php the_field('subtitle'); ?></p>
               <p class="mb-3 text-white lead"><?php the_field('subtitle_2'); ?></p>
-              <a class="mt-3 mr-2 btn btn-outline-light btn-lg" href="#!" role="button">Skapa veggie-smoothie</a>
-              <a class="mt-3 btn btn-outline-light btn-lg" href="#!" role="button">Skapa frukt-smoothie</a>
+              <a class="mt-3 mr-2 btn btn-outline-light btn-lg" href="#!" role="button">Skapa din smoothie</a>
             </div>
           </div>
         </div>
