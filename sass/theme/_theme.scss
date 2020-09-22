@@ -16,6 +16,28 @@ h3 {
     font-weight: 700;
 }
 
+.login {
+    h1 {
+        a {
+            background-image: url('../img/Emojione_1F353.svg');
+        }
+    }
+}
+
+.wp-core-ui {
+    .button-primary {
+        background-color: $primary;
+        font-size: 16px;
+        border-radius: $btn-border-radius;
+    }
+}
+
+.wp-core-ui {
+    .button-primary:hover {
+        background-color: green;
+    }
+}
+
 .entry-meta-bloglist {
     margin-top: 0.5em;
     font-size: 0.7rem;

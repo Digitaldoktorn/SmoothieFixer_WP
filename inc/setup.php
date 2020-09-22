@@ -168,3 +168,25 @@ function noSubsAdminBar() {
 		show_admin_bar(false);
 	}
 }
+
+// Customize Login Screen
+add_filter('login_headerurl', 'ourHeaderUrl');
+
+function ourHeaderUrl() {
+	return esc_url(site_url('/'));
+}
+
+add_action('login_enqueue_scripts', 'ourLoginCSS');
+
+function ourLoginCSS() {
+	wp_enqueue_style( 'understrap-styles', get_template_directory_uri() . '/css/theme.min.css', array(), $css_version );
+}
+
+add_filter('login_headertitle', 'ourLoginTitle');
+
+function ourLoginTitle() {
+	return get_bloginfo('name');
+}
+
+
+
