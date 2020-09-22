@@ -9,23 +9,22 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article class="p-5 mr-3 bg-white" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 	<header class="entry-header">
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
 
 		<div class="entry-meta">
 
-			<?php understrap_posted_on(); ?>
+			<small><?php understrap_posted_on(); ?></small>
 
 		</div><!-- .entry-meta -->
 
 	</header><!-- .entry-header -->
 
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
-
-	<div class="entry-content">
+	<div class="entry-content mt-3">
 
 		<?php the_content(); ?>
 
@@ -47,3 +46,4 @@ defined( 'ABSPATH' ) || exit;
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->
+<hr class="mr-3">

@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<div class="container">
+<div class="container mt-4">
 		<div class="row">
 			<!-- Do the left sidebar check -->
 			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
@@ -20,7 +20,7 @@ get_header();
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'loop-templates/content', 'single' ); ?>
+					<?php get_template_part( 'loop-templates/content', 'recept' ); ?>
 
 					<?php understrap_post_nav(); ?>
 

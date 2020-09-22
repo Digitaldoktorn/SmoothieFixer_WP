@@ -38,7 +38,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		<!-- Image and text -->
 		<nav id="home-nav" class="navbar navbar-light">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="<?php echo site_url('/'); ?>">
 				<img id="strawberry-logo" src="<?php echo get_theme_file_uri('/img/Emojione_1F353.svg') ?>" class="d-inline-block" alt="strawberry" loading="lazy">
 				<span id="smoothie-brand">Smoothie Fixer</span>
 			</a>
