@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 		<div class="row">
 			<div class="col-3 ml-4 mt-4">
-				<div><?php echo get_the_post_thumbnail( $post->ID, 'small' ); ?></div>
+				<div class="bloggarkiv-img"><?php echo get_the_post_thumbnail( $post->ID, 'small' ); ?></div>
 				<?php if ( 'post' == get_post_type() ) : ?>
 					<div class="entry-meta-bloglist"><?php understrap_posted_on(); ?></div>
 				<?php endif; ?>

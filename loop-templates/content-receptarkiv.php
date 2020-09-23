@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="receptarkiv-img">
 					<?php 
 						$image = get_field('smoothie_image');
-						$size = 'thumbnail'; // (thumbnail, medium, large, full or custom size)
+						$size = 'medium'; // (thumbnail, medium, large, full or custom size)
 						if( $image ) {
 							echo wp_get_attachment_image( $image, $size );
 						}
@@ -37,7 +37,7 @@ defined( 'ABSPATH' ) || exit;
 
 					<p class="card-text">
 						<div class="entry-content mb-4">
-							<?php echo wp_trim_words(get_field('description'), 12 ); ?>
+							<?php echo wp_trim_words(get_field('description'), 15 ); ?>
 							<?php the_excerpt(); ?>
 
 							<?php

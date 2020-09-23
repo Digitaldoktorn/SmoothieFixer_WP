@@ -48,7 +48,14 @@ h3 {
 .receptarkiv-img {
     img {
         height: 140px;
+        margin-bottom: 1em;
+        border: double 3px $primary;
     }
+
+}
+
+.bloggarkiv-img {
+        border: double 3px $primary;
 
 }
 
