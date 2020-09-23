@@ -25,7 +25,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <div class="wrapper" id="index-wrapper">
 
+
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+	<h1>Blogg</h1>
 
 		<div class="row">
 
