@@ -1,14 +1,14 @@
 <?php
 /**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * @package understrap
+ * The template for displaying all Mina recept.
  */
+
+// Exit if accessed directly.
+if(!is_user_logged_in()) {
+    wp_redirect(esc_url(site_url('/')));
+    exit;
+
+}
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -18,6 +18,7 @@ get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 
 ?>
+
 <div class="wrapper" id="page-wrapper">
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
@@ -30,7 +31,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'loop-templates/content', 'page' ); ?>
+					<?php get_template_part( 'loop-templates/content', 'page-minarecept' ); ?>
 
 				<?php endwhile; // end of the loop. ?>
 
@@ -46,3 +47,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 </div><!-- #page-wrapper -->
 
 <?php get_footer(); ?>
+

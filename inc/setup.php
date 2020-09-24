@@ -182,7 +182,7 @@ function ourLoginCSS() {
 	wp_enqueue_style( 'understrap-styles', get_template_directory_uri() . '/css/theme.min.css', array(), $css_version );
 }
 
-add_filter('login_headertitle', 'ourLoginTitle');
+add_filter('login_headertext', 'ourLoginTitle');
 
 function ourLoginTitle() {
 	return get_bloginfo('name');
