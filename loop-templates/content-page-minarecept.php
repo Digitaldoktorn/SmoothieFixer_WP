@@ -20,9 +20,9 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
-	<div class="entry-content">
+	<div class="form-group mt-3">
 		
-        <ul class="min-list link-list" id="mina-recept">
+        <ul class="list-group" id="mina-recept">
             <?php 
                $minaRecept = new WP_Query([
                    'post_type' => 'mina-recept',
@@ -32,9 +32,12 @@ defined( 'ABSPATH' ) || exit;
 
                while($minaRecept->have_posts()) {
                     $minaRecept->the_post(); ?>
-                    <li>
-                        <input class="recept-title-field" value="<?php echo esc_attr(get_the_title()); ?>"><br>
-                        <textarea class="recept-content-field"><?php echo esc_attr(wp_strip_all_tags(get_the_content())); ?></textarea>
+                    <li class="list-group-item">
+                        <input class="form-control" value="<?php echo esc_attr(get_the_title()); ?>">
+                        
+                        <textarea rows=4 class="form-control"><?php echo esc_attr(wp_strip_all_tags(get_the_content())); ?></textarea>
+                        <span class="btn btn-secondary btn-sm mt-2"><i class="fa fa-pencil" aria-hidden="true"></i>Redigera</span>
+                        <span class="btn btn-danger btn-sm mt-2"><i class="fa fa-trash-o" aria-hidden="true"></i>Ta bort</span>
                     </li>
                <?php }
             ?>
