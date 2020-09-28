@@ -36,8 +36,8 @@ defined( 'ABSPATH' ) || exit;
                         <input class="form-control" value="<?php echo esc_attr(get_the_title()); ?>">
                         
                         <textarea rows=4 class="form-control"><?php echo esc_attr(wp_strip_all_tags(get_the_content())); ?></textarea>
-                        <span class="btn btn-secondary btn-sm mt-2"><i class="fa fa-pencil" aria-hidden="true"></i>Redigera</span>
-                        <span class="btn btn-danger btn-sm mt-2"><i class="fa fa-trash-o" aria-hidden="true"></i>Ta bort</span>
+                        <span class="btn btn-secondary btn-sm mt-2"><i class="fa fa-pencil" aria-hidden="true"></i> Redigera</span>
+                        <span class="btn btn-danger btn-sm mt-2 delete-recept"><i class="fa fa-trash-o" aria-hidden="true"></i> Ta bort</span>
                     </li>
                <?php }
             ?>
