@@ -1,28 +1,24 @@
 <?php
 /**
- * The template for displaying all Mina recept.
+ * The template for displaying all single Mina Recept.
+ *
+ * @package understrap
  */
 
+// Exit if accessed directly.
 if(!is_user_logged_in()) {
     wp_redirect(esc_url(site_url('/')));
     exit;
 
 }
 
-// Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-
-$container = get_theme_mod( 'understrap_container_type' );
-
 ?>
 
-<div class="wrapper" id="page-wrapper">
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-
+<div class="container mt-4">
 		<div class="row">
-
 			<!-- Do the left sidebar check -->
 			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
 
@@ -30,7 +26,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'loop-templates/content', 'page-minarecept' ); ?>
+					<?php get_template_part( 'loop-templates/content', 'recept' ); ?>
+
+					<?php understrap_post_nav(); ?>
 
 				<?php endwhile; // end of the loop. ?>
 
@@ -38,12 +36,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<!-- Do the right sidebar check -->
 			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
-
 		</div><!-- .row -->
-
-	</div><!-- #content -->
-
-</div><!-- #page-wrapper -->
+</div>
 
 <?php get_footer(); ?>
-

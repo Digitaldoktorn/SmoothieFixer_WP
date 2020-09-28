@@ -32,8 +32,12 @@ defined( 'ABSPATH' ) || exit;
 						?>
 					</h5>
 					<?php if ( 'recept' == get_post_type() ) : ?>
-					<div class="entry-meta-bloglist"><?php understrap_posted_on(); ?></div>
-				<?php endif; ?>
+						<div class="entry-meta-bloglist"><?php understrap_posted_on(); ?></div>
+					<?php endif; ?>
+
+					<?php if ( 'mina-recept' == get_post_type() ) : ?>
+						<div class="entry-meta-bloglist"><?php understrap_posted_on(); ?></div>
+					<?php endif; ?>
 
 					<p class="card-text">
 						<div class="entry-content mb-4">
