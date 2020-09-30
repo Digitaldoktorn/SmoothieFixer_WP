@@ -27,6 +27,7 @@ h3 {
 .wp-core-ui {
     .button-primary {
         background-color: $primary;
+        border-color: $primary;
         font-size: 16px;
         border-radius: $btn-border-radius;
     }
@@ -35,6 +36,11 @@ h3 {
 .wp-core-ui {
     .button-primary:hover {
         background-color: green;
+        border-color: green;
+    }
+    .button-primary:active {
+        background-color: $primary;
+        border-color: $primary;
     }
 }
 

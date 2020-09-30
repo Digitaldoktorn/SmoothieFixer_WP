@@ -179,7 +179,7 @@ function ourHeaderUrl() {
 add_action('login_enqueue_scripts', 'ourLoginCSS');
 
 function ourLoginCSS() {
-	wp_enqueue_style( 'understrap-styles', get_template_directory_uri() . '/css/theme.min.css', array(), $css_version );
+	wp_enqueue_style( 'understrap-styles', get_template_directory_uri() . '/css/theme.min.css', array() );
 }
 
 add_filter('login_headertext', 'ourLoginTitle');
