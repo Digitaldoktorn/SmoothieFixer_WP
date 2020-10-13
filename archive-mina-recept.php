@@ -42,13 +42,21 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php while ( have_posts() ) : the_post(); ?>
 						<div class="mb-2">
 							<?php
+								$currentUser = wp_get_current_user();
+
+								if($currentUser && is_user_logged_in()) { 
+
 								/*
 								* Include the Post-Format-specific template for the content.
 								* If you want to override this in a child theme, then include a file
 								* called content-___.php (where ___ is the Post Format name) and that will be used instead.
 								*/
 								get_template_part( 'loop-templates/content-receptarkiv', get_post_format() );
-							?>
+								
+								} else { ?>
+									<p>Du måste vara inloggad för att kunna se dina recept</p>
+									<li><a class="dropdown-item" href="<?php echo wp_login_url(); ?>">Login</a></li>
+								<?php } ?>
 						</div>
 
 

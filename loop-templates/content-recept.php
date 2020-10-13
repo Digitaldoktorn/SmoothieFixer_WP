@@ -52,6 +52,8 @@ defined( 'ABSPATH' ) || exit;
                     $fruits_badge = '<span class="badge badge-pill badge-danger">Frukter</span>';
                     $veggies_badge = '<span class="badge badge-pill badge-danger">Grönsaker</span>';
                     $proteins_badge = '<span class="badge badge-pill badge-danger">Proteiner</span>';
+                    $spices_badge = '<span class="badge badge-pill badge-danger">Kryddor</span>';
+                    $sweeteners_badge = '<span class="badge badge-pill badge-danger">Sötningsmedel</span>';
                     $superfood1_badge = '<span class="badge badge-pill badge-danger">Superfood 1</span>';
                     $superfood2_badge = '<span class="badge badge-pill badge-danger">Superfood 2</span>';
                 ?>
@@ -79,6 +81,10 @@ defined( 'ABSPATH' ) || exit;
                     <td><span class="badge badge-pill badge-danger">Nötter, frön, kärnor</span></td>
                     <td><?php the_field('nuts'); ?></td>
                 </tr>
+                <tr>
+                    <td><span class="badge badge-pill badge-danger">Medium</span></td>
+                    <td><?php the_field('medium'); ?></td>
+                </tr>
 
                 <tr>
                     <td><?php if(get_field('choice') == 'Veggie-smoothie') {
@@ -90,39 +96,57 @@ defined( 'ABSPATH' ) || exit;
                          } ?>
                     </td>
                 </tr>
-                <tr>
-                    <td><span class="badge badge-pill badge-danger">Medium</span></td>
-                    <td><?php the_field('medium'); ?></td>
-                </tr>
+
                 <tr>
                     <td><span class="badge badge-pill badge-danger">Fetter, oljor</span></td>
                     <td><?php the_field('fats'); ?></td>
                 </tr>
                 <tr>
-                    <td><span class="badge badge-pill badge-danger">Kryddor</span></td>
-                    <td><?php the_field('spices'); ?></td>
+                    <td><?php if(get_field('spices')) {
+                                echo $spices_badge;
+                         } ?>
+                    </td>
+                    <td><?php if(get_field('spices')) {
+                                echo the_field('spices');
+                         } ?>
+                    </td>
                 </tr>
                 <tr>
-                    <td><span class="badge badge-pill badge-danger">Sötningsmedel</span></td>
-                    <td><?php the_field('sweeteners'); ?></td>
+                    <td><?php if(get_field('sweeteners')) {
+                                echo $sweeteners_badge;
+                         } ?>
+                    </td>
+                    <td><?php if(get_field('sweeteners')) {
+                                echo the_field('sweeteners');
+                         } ?>
+                    </td>
                 </tr>
                 <tr>
                     <td><?php if(get_field('choice_superfood') == 'Superfood 1') {
-                                echo $superfood1_badge;
+                                if(get_field('superfood_1')) {
+                                    echo $superfood1_badge;
+                                }
+                                
                          } ?>
                     </td>
                     <td><?php if(get_field('choice_superfood') == 'Superfood 1') {
-                                echo the_field('superfood_1');
+                                if(get_field('superfood_1')) {
+                                    echo the_field('superfood_1');
+                                }
                          } ?>
                     </td>
                 </tr>
                 <tr>
                     <td><?php if(get_field('choice_superfood') == 'Superfood 2') {
-                                echo $superfood2_badge;
+                                if(get_field('superfood_2')) {
+                                    echo $superfood2_badge;
+                                }
                          } ?>
                     </td>
                     <td><?php if(get_field('choice_superfood') == 'Superfood 2') {
+                            if(get_field('superfood_2')) {
                                 echo the_field('superfood_2');
+                            }
                          } ?>
                     </td>
                 </tr>

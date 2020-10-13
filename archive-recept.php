@@ -19,7 +19,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 	<header class="page-header">
-						<h1>Recept</h1>
+						<h1>Utvalda recept</h1>
 					</header><!-- .page-header -->
 
 		<div class="row">
