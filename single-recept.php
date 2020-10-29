@@ -9,9 +9,12 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
+$container = get_theme_mod( 'understrap_container_type' );
 ?>
 
-<div class="container mt-4">
+<div class="wrapper" id="single-wrapper">
+
+	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 		<div class="row">
 			<!-- Do the left sidebar check -->
 			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
@@ -31,6 +34,7 @@ get_header();
 			<!-- Do the right sidebar check -->
 			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
 		</div><!-- .row -->
+</div>
 </div>
 
 <?php get_footer(); ?>

@@ -37,9 +37,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 					<h1><?php echo esc_html__( 'About:', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
 
-					<?php if ( ! empty( $curauth->ID ) ) : ?>
-						<?php echo get_avatar( $curauth->ID ); ?>
-					<?php endif; ?>
+					<div class="mb-4">
+						<?php if ( ! empty( $curauth->ID ) ) : ?>
+							<?php echo get_avatar( $curauth->ID ); ?>
+						<?php endif; ?>
+					</div>
+
 
 					<?php if ( ! empty( $curauth->user_url ) || ! empty( $curauth->user_description ) ) : ?>
 						<dl>
@@ -56,8 +59,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 							<?php endif; ?>
 						</dl>
 					<?php endif; ?>
+					<div class="mt-4">
+						<h4><?php echo esc_html( 'Recept av', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h4>
+					</div>
 
-					<h4><?php echo esc_html( 'Inlägg av', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h4>
 
 				</header><!-- .page-header -->
 

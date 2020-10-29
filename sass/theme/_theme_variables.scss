@@ -11,6 +11,53 @@ $danger: #cf2929;
 $success: #c7f2ff;
 
 $body-bg: #f0ffe0;
-$btn-border-radius: 1.8em;
+$btn-border-radius: .3em;
 $btn-padding-y: 0.5em;
 $btn-padding-x: 1em;
+
+$input-border-width: 0;
+
+$theme-colors: (
+  "fruits": #fd1010,
+  "veggies": #19440c,
+  "nuts": #8d4a3a,
+  "proteins": #e04f4f,
+  "medium": #4fb7e0,
+  "fats": #e6e937,
+  "spices": #900,
+  "sweeteners": #eeb347,
+  "superfood1": #135480,
+  "superfood2": #0441b3,
+
+);
+
+/*
+// Colors for ingredient badges
+$fruits:        $green1;
+$veggies:       $green2;
+$nuts:          $red1;
+$proteins:      $red2;
+$medium:        $blue1;
+$fats:          $orange1;
+$spices:        $red3;
+$sweeteners:    $pink1;
+$superfood1:    $purple1;
+$superfood2:    $purple1;
+
+
+$theme-colors: map-merge(
+    (
+        "fruits":     $fruits,
+        "veggies":    $veggies,
+        "nuts":       $nuts,
+        "proteins":   $proteins,
+        "medium":     $medium,
+        "fats":       $fats,
+        "spices":     $spices,
+        "sweeteners": $sweeteners,
+        "superfood1": $superfood1,
+        "superfood2": $superfood2
+    ),
+    $theme-colors
+);
+*/

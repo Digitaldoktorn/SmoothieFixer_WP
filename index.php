@@ -27,7 +27,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-	<h1>Blogg</h1>
+	<header class="page-header">
+			<h1>Blogg</h1>
+		</header>
 
 		<div class="row">
 
@@ -54,11 +56,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</div>
 						<?php endwhile; ?>
 
-						<?php else : ?>
+				<?php else : ?>
 
-							<?php get_template_part( 'loop-templates/content', 'none' ); ?>
+					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
 
-						<?php endif; ?>
+				<?php endif; ?>
 
 
 

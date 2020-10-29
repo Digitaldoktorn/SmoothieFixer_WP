@@ -45,7 +45,7 @@ if ( ! function_exists ( 'understrap_setup' ) ) {
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'primary' => __( 'Primary Menu', 'understrap' ),
+			'primary' => __( 'Primary Menu', 'understrap' )
 		) );
 
 		/*
@@ -129,7 +129,7 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	 */
 	function understrap_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() ) {
-			$post_excerpt = $post_excerpt . ' [...] <a class="btn btn-sm btn-success float-right understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...',
+			$post_excerpt = $post_excerpt . ' [...] <a class="btn btn-sm btn-info float-right understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...',
 			'understrap' ) . '</a>';
 		}
 		return $post_excerpt;
@@ -187,6 +187,75 @@ add_filter('login_headertext', 'ourLoginTitle');
 function ourLoginTitle() {
 	return get_bloginfo('name');
 }
+
+// Remove tags support from posts
+// function smoothietheme_unregister_tags() {
+//     unregister_taxonomy_for_object_type('post_tag', 'post');
+// }
+// add_action('init', 'smoothietheme_unregister_tags');
+
+// se Alecadd tutorial: https://www.youtube.com/watch?v=KPy8a5bHGuo
+function smoothie_custom_taxonomies() {
+
+	// hierarchical taxonomy
+	$labels = [
+		'name' => 'Smoothie-kategorier',
+		'singular_name' => 'Smoothie-kategori',
+		'search_items' => 'Sök Smoothie-kategorier',
+		'all_items' => 'Alla Smoothie-kategorier',
+		'edit_item' => 'Redigera Smoothie-kategori',
+		'update_item' => 'Uppdatera Smoothie-kategori',
+		'add_new_item' => 'Lägg till Smoothie-kategori',
+		'new_item_name' => 'Nytt Smoothie-kategori-namn',
+		'menu_name' => 'Smoothie-kategorier'
+	];
+
+	$args = [
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => ['slug' => 'smoothie-kategori']
+	];
+
+	register_taxonomy('smoothie-kategori', ['recept'], $args);
+
+	// non hierarchical taxonomy
+	register_taxonomy('smoothie-etikett', ['recept'], [
+		'label' => 'Smoothie-etiketter',
+		'rewrite' => ['slug' => 'smoothie-etikett'],
+		'hierarchical' => false
+	]);
+
+
+}
+
+add_action('init', 'smoothie_custom_taxonomies');
+
+// Custom term function
+function smoothie_get_terms( $postID, $term ) {
+	$terms_list = wp_get_post_terms( $postID, $term );
+	$output = '';
+		$i = 0;
+		foreach( $terms_list as $term ){
+			$i++;
+			if( $i > 1) {
+				$output .= ', ';
+			}
+			$output .= '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>';
+		}
+
+		return $output;
+}
+
+/* Add CPTs to author archives */
+function custom_post_author_archive($query) {
+    if ($query->is_author)
+        $query->set( 'post_type', array('custom_type', 'recept') );
+    remove_action( 'pre_get_posts', 'custom_post_author_archive' );
+}
+add_action('pre_get_posts', 'custom_post_author_archive'); 
 
 
 

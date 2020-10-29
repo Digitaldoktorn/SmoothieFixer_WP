@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 		<div class="row">
 			<div class="col-3 ml-4 mt-4">
-				<div class="receptarkiv-img">
+				<div class="img-no-border">
 					<?php 
 						$image = get_field('smoothie_image');
 						$size = 'medium'; // (thumbnail, medium, large, full or custom size)
@@ -20,7 +20,14 @@ defined( 'ABSPATH' ) || exit;
 							echo wp_get_attachment_image( $image, $size );
 						}
 					?>
+					<div class="pb-3">
+						<?php if ( 'recept' == get_post_type() ) : ?>
+							<div class="entry-meta-bloglist"><?php understrap_posted_on(); ?> </div>
+						<?php endif; ?>
+					</div>
 				</div>
+
+
 
 			</div>
 			<div class="col">
@@ -31,18 +38,12 @@ defined( 'ABSPATH' ) || exit;
 							sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>');
 						?>
 					</h5>
-					<?php if ( 'recept' == get_post_type() ) : ?>
-						<div class="entry-meta-bloglist"><?php understrap_posted_on(); ?></div>
-					<?php endif; ?>
 
-					<?php if ( 'mina-recept' == get_post_type() ) : ?>
-						<div class="entry-meta-bloglist"><?php understrap_posted_on(); ?></div>
-					<?php endif; ?>
+
 
 					<p class="card-text">
 						<div class="entry-content mb-4">
-							<?php echo wp_trim_words(get_field('description'), 15 ); ?>
-							<?php the_excerpt(); ?>
+							<?php echo wp_trim_words(get_field('description'), 15 ) . '<a class="btn btn-sm btn-info float-right understrap-read-more-link" href="', esc_url( get_permalink() ) , '">Läs mer</a>'; ?>
 
 							<?php
 							wp_link_pages(
@@ -53,22 +54,19 @@ defined( 'ABSPATH' ) || exit;
 							);
 							?>
 						</div>
+						<div>
+				</div>
 					</p>
 				</div>
 			</div>
 		</div>
 	</article>
 </div>
-
-
-
-
-
-
 	<footer class="entry-footer">
 
 		<?php understrap_entry_footer(); ?>
 
 	</footer>
 
-</article>
+	
+

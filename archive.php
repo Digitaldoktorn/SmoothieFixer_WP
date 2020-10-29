@@ -16,7 +16,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
 <div class="wrapper" id="archive-wrapper">
-
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
 		<div class="row">
@@ -37,7 +36,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 					<?php /* Start the Loop */ ?>
 					<?php while ( have_posts() ) : the_post(); ?>
-
+					<div class="mb-2">
 						<?php
 
 						/*
@@ -47,7 +46,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						 */
 						get_template_part( 'loop-templates/content', get_post_format() );
 						?>
-
+						</div>
 					<?php endwhile; ?>
 
 				<?php else : ?>
@@ -55,6 +54,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
 
 				<?php endif; ?>
+
 
 			</main><!-- #main -->
 

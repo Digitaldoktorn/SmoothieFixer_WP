@@ -20,7 +20,8 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="entry-meta">
 
-			<small id="recipe-meta" class="badge badge-dark p-2 font-weight-normal"><?php understrap_posted_on(); ?></small>
+			<small id="recipe-meta" class="badge badge-dark p-2 font-weight-normal"><?php understrap_posted_on(); ?> i <?php echo smoothie_get_terms($post->ID, 'smoothie-kategori'); ?></small>
+
 
 		</div><!-- .entry-meta -->
 
@@ -29,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
 	<div class="entry-content mt-3">
-        <div class="img-thumbnail">
+        <div class="img-thumbnail img-no-border">
             <?php 
                 $image = get_field('smoothie_image');
                 $size = 'full'; // (thumbnail, medium, large, full or custom size)
@@ -39,23 +40,27 @@ defined( 'ABSPATH' ) || exit;
             ?>
         </div>
 
+        <div>
+            <small><strong>Etiketter:</strong> <?php echo smoothie_get_terms($post->ID, 'smoothie-etikett'); ?></small>
+        </div>
 
         <div class="mt-5">
             <h4>Beskrivning</h4>
             <?php the_field('description'); ?>
         </div>
 
-        <div class="mt-3">
+        <div class="mt-5">
+        <h4>Ingredienser</h4>
             <table id="ingredients-fruit" class="mb-2">
                 <?php 
                     // There is a bug (ACF). It's possible for the user to first choose from Superfood 1, update, and then choose from Superfood 2. The first choice will not be removed unless the user unchecks and updates before choosing from Superfood 2. So to avoid displaying values from both categories, I wrote conditionals. Same goes for Fruit- or Veggie-smoothie
-                    $fruits_badge = '<span class="badge badge-pill badge-danger">Frukter</span>';
-                    $veggies_badge = '<span class="badge badge-pill badge-danger">Grönsaker</span>';
-                    $proteins_badge = '<span class="badge badge-pill badge-danger">Proteiner</span>';
-                    $spices_badge = '<span class="badge badge-pill badge-danger">Kryddor</span>';
-                    $sweeteners_badge = '<span class="badge badge-pill badge-danger">Sötningsmedel</span>';
-                    $superfood1_badge = '<span class="badge badge-pill badge-danger">Superfood 1</span>';
-                    $superfood2_badge = '<span class="badge badge-pill badge-danger">Superfood 2</span>';
+                    $fruits_badge = '<span class="badge badge-pill badge-fruits">Frukter</span>';
+                    $veggies_badge = '<span class="badge badge-pill badge-veggies">Grönsaker</span>';
+                    $proteins_badge = '<span class="badge badge-pill badge-proteins">Proteiner</span>';
+                    $spices_badge = '<span class="badge badge-pill badge-spices">Kryddor</span>';
+                    $sweeteners_badge = '<span class="badge badge-pill badge-sweeteners">Sötningsmedel</span>';
+                    $superfood1_badge = '<span class="badge badge-pill badge-superfood1">Superfood 1</span>';
+                    $superfood2_badge = '<span class="badge badge-pill badge-superfood2">Superfood 2</span>';
                 ?>
                 <tr>
                     <td><?php if(get_field('choice') == 'Frukt-smoothie') {
@@ -68,21 +73,21 @@ defined( 'ABSPATH' ) || exit;
                     </td>
                 </tr>
                 <tr>
-                    <td><?php if(get_field('choice') == 'Veggie-smoothie') {
+                    <td><?php if(get_field('choice') == 'Grönsaks-smoothie') {
                                 echo $veggies_badge;
                          } ?>
                     </td>
-                    <td><?php if(get_field('choice') == 'Veggie-smoothie') {
+                    <td><?php if(get_field('choice') == 'Grönsaks-smoothie') {
                                 echo the_field('veggies');
                          } ?>
                     </td>
                 </tr>
                 <tr>
-                    <td><span class="badge badge-pill badge-danger">Nötter, frön, kärnor</span></td>
+                    <td><span class="badge badge-pill badge-nuts">Nötter, frön, kärnor</span></td>
                     <td><?php the_field('nuts'); ?></td>
                 </tr>
                 <tr>
-                    <td><span class="badge badge-pill badge-danger">Medium</span></td>
+                    <td><span class="badge badge-pill badge-medium">Medium</span></td>
                     <td><?php the_field('medium'); ?></td>
                 </tr>
 
@@ -98,7 +103,7 @@ defined( 'ABSPATH' ) || exit;
                 </tr>
 
                 <tr>
-                    <td><span class="badge badge-pill badge-danger">Fetter, oljor</span></td>
+                    <td><span class="badge badge-pill badge-fats">Fetter, oljor</span></td>
                     <td><?php the_field('fats'); ?></td>
                 </tr>
                 <tr>
@@ -152,6 +157,7 @@ defined( 'ABSPATH' ) || exit;
                 </tr>
             </table>
         </div>
+        <?php the_content(); ?>
 
 		<?php
 		wp_link_pages(

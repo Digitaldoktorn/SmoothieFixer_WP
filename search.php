@@ -43,7 +43,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 					<?php /* Start the Loop */ ?>
 					<?php while ( have_posts() ) : the_post(); ?>
-
+					<div class="mb-2">
 						<?php
 						/**
 						 * Run the loop for the search to output the results.
@@ -52,7 +52,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						 */
 						get_template_part( 'loop-templates/content', 'search' );
 						?>
-
+					</div>
 					<?php endwhile; ?>
 
 				<?php else : ?>

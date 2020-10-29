@@ -8,40 +8,46 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 ?>
+<div class="card">
+	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+		<div class="row">
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<header class="entry-header">
+		<div class="col ml-4 mt-4">
 
-		<?php
-		the_title(
-			sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-			'</a></h2>'
-		);
-		?>
+			<div class="col">
+				<div class="card-body">
+					<h5 class="card-title">		
+						<?php
+							the_title(
+							sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>');
+						?>
+					</h5>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
+					<p class="card-text">
+						<div class="entry-content mb-4">
+							<?php echo wp_trim_words(get_field('description'), 15 ); ?>
+							<?php echo the_excerpt(); ?>
+							
 
-			<div class="entry-meta">
+							<?php
+							wp_link_pages(
+								array(
+									'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
+									'after'  => '</div>',
+								)
+							);
+							?>
+						</div>
+					</p>
+				</div>
+			</div>
 
-				<?php understrap_posted_on(); ?>
+			<footer class="entry-footer">
 
-			</div><!-- .entry-meta -->
+				<?php understrap_entry_footer(); ?>
 
-		<?php endif; ?>
-
-	</header><!-- .entry-header -->
-
-	<div class="entry-summary">
-
-		<?php the_excerpt(); ?>
-
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-
-		<?php understrap_entry_footer(); ?>
-
-	</footer><!-- .entry-footer -->
-
-</article><!-- #post-## -->
+			</footer><!-- .entry-footer -->
+		</div>
+	</article><!-- #post-## -->
+</div>

@@ -19,24 +19,20 @@ defined( 'ABSPATH' ) || exit;
       <div class="row">
         <!--Grid column-->
         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Footer text</h5>
+          <h5 class="text-uppercase">I webbläsaren och i mobilen</h5>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-            aliquam voluptatem veniam, est atque cumque eum delectus sint!
+            Smoothie Fixer är responsiv och funkar för olika enheter (t ex dator, ipad, mobil). I mobil och läsplatta kan du dessutom använda Smoothie Fixer som en s k Progressive Web App. Det innebär att du t ex kan använda den "offline". Läs mer...
           </p>
         </div>
         <!--Grid column-->
 
         <!--Grid column-->
         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Footer text</h5>
+          <h5 class="text-uppercase">Sociala medier</h5>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-            aliquam voluptatem veniam, est atque cumque eum delectus sint!
+            Vi har ingen kontaktsida utan vi välkomnar dig till vår <a href="#">Facebook-grupp</a>. Den funkar som ett forum där vi inspirerar varandra och hjälps åt med support. Vi finns även på <a href="#">Instagram</a>. Hjärtligt välkommen!
           </p>
         </div>
         <!--Grid column-->
@@ -46,9 +42,10 @@ defined( 'ABSPATH' ) || exit;
     <!-- Grid container -->
 
     <!-- Copyright -->
+
     <div class="text-center p-5" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-dark" href="https://smoothiefixer.com/">SmoothieFixer.com</a>
+    Copyright &copy <?php echo date ('Y'); ?>  SmoothieFixer.com •  
+      <a iclass="text-dark" href="http://localhost:8001/integritetspolicy/">Integritetspolicy</a>
     </div>
     <!-- Copyright -->
   </footer>
