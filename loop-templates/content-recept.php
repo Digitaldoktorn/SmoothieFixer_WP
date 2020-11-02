@@ -92,11 +92,11 @@ defined( 'ABSPATH' ) || exit;
                 </tr>
 
                 <tr>
-                    <td><?php if(get_field('choice') == 'Veggie-smoothie') {
+                    <td><?php if(get_field('choice') == 'Grönsaks-smoothie') {
                                 echo $proteins_badge;
                          } ?>
                     </td>
-                    <td><?php if(get_field('choice') == 'Veggie-smoothie') {
+                    <td><?php if(get_field('choice') == 'Grönsaks-smoothie') {
                                 echo the_field('proteins');
                          } ?>
                     </td>
